@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		623F0414231D93CC00D4DA58 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F0413231D93CC00D4DA58 /* main.swift */; };
+		623F041B231DB43E00D4DA58 /* logDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F041A231DB43E00D4DA58 /* logDataHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +24,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		623F0410231D93CC00D4DA58 /* wirelog */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = wirelog; sourceTree = BUILT_PRODUCTS_DIR; };
+		623F0410231D93CC00D4DA58 /* wirelogd */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = wirelogd; sourceTree = BUILT_PRODUCTS_DIR; };
 		623F0413231D93CC00D4DA58 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		623F041A231DB43E00D4DA58 /* logDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logDataHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,7 +51,7 @@
 		623F0411231D93CC00D4DA58 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				623F0410231D93CC00D4DA58 /* wirelog */,
+				623F0410231D93CC00D4DA58 /* wirelogd */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				623F0413231D93CC00D4DA58 /* main.swift */,
+				623F041A231DB43E00D4DA58 /* logDataHandler.swift */,
 			);
 			path = wirelog;
 			sourceTree = "<group>";
@@ -65,9 +68,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		623F040F231D93CC00D4DA58 /* wirelog */ = {
+		623F040F231D93CC00D4DA58 /* wirelogd */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 623F0417231D93CC00D4DA58 /* Build configuration list for PBXNativeTarget "wirelog" */;
+			buildConfigurationList = 623F0417231D93CC00D4DA58 /* Build configuration list for PBXNativeTarget "wirelogd" */;
 			buildPhases = (
 				623F040C231D93CC00D4DA58 /* Sources */,
 				623F040D231D93CC00D4DA58 /* Frameworks */,
@@ -77,9 +80,9 @@
 			);
 			dependencies = (
 			);
-			name = wirelog;
+			name = wirelogd;
 			productName = wirelog;
-			productReference = 623F0410231D93CC00D4DA58 /* wirelog */;
+			productReference = 623F0410231D93CC00D4DA58 /* wirelogd */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -109,7 +112,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				623F040F231D93CC00D4DA58 /* wirelog */,
+				623F040F231D93CC00D4DA58 /* wirelogd */,
 			);
 		};
 /* End PBXProject section */
@@ -120,6 +123,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				623F0414231D93CC00D4DA58 /* main.swift in Sources */,
+				623F041B231DB43E00D4DA58 /* logDataHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +277,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		623F0417231D93CC00D4DA58 /* Build configuration list for PBXNativeTarget "wirelog" */ = {
+		623F0417231D93CC00D4DA58 /* Build configuration list for PBXNativeTarget "wirelogd" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				623F0418231D93CC00D4DA58 /* Debug */,
