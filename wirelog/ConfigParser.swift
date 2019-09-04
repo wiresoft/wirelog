@@ -128,22 +128,22 @@ class Configuration {
         var searchPos = str.startIndex
         while(true) {
             // find the next log spec in between curly braces {...}
-            guard let specStart = str[searchPos...].firstIndex(of: "{") else { break }
-            guard let specEnd = str[specStart...].firstIndex(of: "}") else {
+            guard let specStart = str[searchPos...].range(of: "FORMAT") else { break }
+            guard let specEnd = str[specStart.upperBound...].range(of: "ENDFORMAT") else {
                 os_log(.error, log: cfgFileLogCtx, "Unmatched \"{\" in config file: %{public}", file.absoluteString)
                 exit(-3)
             }
             
             // parse the log spec
-            guard let logSpec = Spec(from: str[str.index(after: specStart)..<specEnd]) else {
+            guard let logSpec = Spec(from: str[str.index(after: specStart.upperBound)..<specEnd.lowerBound]) else {
                 os_log(.error, log: cfgFileLogCtx, "Malformed log spec in config file: %{public}", file.absoluteString)
                 exit(-4)
             }
             
             // assign the log spec to the IP addresses on following lines
-            let hostEndPos = str[specEnd...].firstIndex(of: "{") ?? str.endIndex
+            let hostEndPos = str[specEnd.upperBound...].range(of: "FORMAT")?.lowerBound ?? str.endIndex
             
-            assign(spec: logSpec, toHosts: str[specEnd...hostEndPos])
+            assign(spec: logSpec, toHosts: str[specEnd.upperBound..<hostEndPos])
             searchPos = hostEndPos
         }
     }

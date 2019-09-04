@@ -42,12 +42,12 @@ class LogReceiver {
                 self.defaultHost = name
             @unknown default:
                 self.defaultHost = "<unknown>"
-                os_log(.error, log: networkLogCtx, "Unknown host type: %{public}s), using default log spec", connection.debugDescription)
+                os_log(.error, log: networkLogCtx, "Unknown host type: %{public}s), using default log spec", connection.endpoint.debugDescription)
             }
         default:
             self.formatter = Configuration.defaultSpec
             self.defaultHost = ""
-            os_log(.error, log: networkLogCtx, "Non-network host: %{public}s), using default log spec", connection.debugDescription)
+            os_log(.error, log: networkLogCtx, "Non-network host: %{public}s), using default log spec", connection.endpoint.debugDescription)
         }
         
         self.recieve()
@@ -71,7 +71,6 @@ class LogReceiver {
         
         let searchRange = NSRange(str.startIndex..., in: str)
         if let result = self.formatter.regex.firstMatch(in: str, options: [], range: searchRange) {
-            let subExprs = 1...result.numberOfRanges
             
             // parsed log fields
             var host = self.defaultHost
@@ -80,9 +79,9 @@ class LogReceiver {
             var msg: String? = nil
             
             // loop through sub expressions and assign to log fields based on Configuration Spec
-            for index in subExprs {
-                let field = str[Range(result.range(at: index), in: str)!]
-                switch (self.formatter.captureList[index-1]) {
+            for (matchIndex, target) in zip(1..., self.formatter.captureList) {
+                let field = str[Range(result.range(at: matchIndex), in: str)!]
+                switch (target) {
                 case .category:
                     category = String(field)
                 case .host:
@@ -98,13 +97,13 @@ class LogReceiver {
             if let msg = msg {
                 let hostCtx = OSLog(subsystem: host, category: category)
                 if let timestamp = timestamp {
-                    os_log(.default, log: hostCtx, "[${public}s] %{public}s", timestamp, String(msg))
+                    os_log(.default, log: hostCtx, "[%{public}s] %{public}s", timestamp, String(msg))
                 } else {
                     os_log(.default, log: hostCtx, "%{public}s", String(msg))
                 }
             }
         } else {
-            os_log(.error, log: parsingLogCtx, "Unmatched msg from [%{public}s]: %{public}s", self.connection.debugDescription, str)
+            os_log(.error, log: parsingLogCtx, "Unmatched msg from [%{public}s]: %{public}s", self.connection.endpoint.debugDescription, str)
         }
     }
 }
