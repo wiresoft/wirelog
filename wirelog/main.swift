@@ -22,12 +22,14 @@ let listener: NWListener
 var connections = [LogReceiver]()
 
 
+os_log(.info, log: cfgFileLogCtx, "Reading config file...")
+Configuration.parse(URL(fileURLWithPath: CommandLine.arguments[1]))
 
 os_log(.info, log: networkLogCtx, "Starting UDP listener on port 514...")
 do {
     let parameters = NWParameters(dtls: nil, udp: NWProtocolUDP.Options())
     parameters.prohibitedInterfaceTypes = [.cellular]
-    parameters.acceptLocalOnly = false
+    parameters.acceptLocalOnly = true
     parameters.serviceClass = .background
     
     listener = try NWListener(using: parameters, on: 514)

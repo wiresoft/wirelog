@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		623F0414231D93CC00D4DA58 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F0413231D93CC00D4DA58 /* main.swift */; };
-		623F041B231DB43E00D4DA58 /* logDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F041A231DB43E00D4DA58 /* logDataHandler.swift */; };
+		623F041B231DB43E00D4DA58 /* LogReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F041A231DB43E00D4DA58 /* LogReceiver.swift */; };
+		623F041D231DF9A300D4DA58 /* ConfigParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F041C231DF9A300D4DA58 /* ConfigParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,7 +27,8 @@
 /* Begin PBXFileReference section */
 		623F0410231D93CC00D4DA58 /* wirelogd */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = wirelogd; sourceTree = BUILT_PRODUCTS_DIR; };
 		623F0413231D93CC00D4DA58 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		623F041A231DB43E00D4DA58 /* logDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logDataHandler.swift; sourceTree = "<group>"; };
+		623F041A231DB43E00D4DA58 /* LogReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogReceiver.swift; sourceTree = "<group>"; };
+		623F041C231DF9A300D4DA58 /* ConfigParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +62,8 @@
 			isa = PBXGroup;
 			children = (
 				623F0413231D93CC00D4DA58 /* main.swift */,
-				623F041A231DB43E00D4DA58 /* logDataHandler.swift */,
+				623F041A231DB43E00D4DA58 /* LogReceiver.swift */,
+				623F041C231DF9A300D4DA58 /* ConfigParser.swift */,
 			);
 			path = wirelog;
 			sourceTree = "<group>";
@@ -123,7 +126,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				623F0414231D93CC00D4DA58 /* main.swift in Sources */,
-				623F041B231DB43E00D4DA58 /* logDataHandler.swift in Sources */,
+				623F041B231DB43E00D4DA58 /* LogReceiver.swift in Sources */,
+				623F041D231DF9A300D4DA58 /* ConfigParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
