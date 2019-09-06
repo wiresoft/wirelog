@@ -1,5 +1,5 @@
 # wirelog
-Bare-bones MacOS syslog host. Accepts input on UDP port 514, parses input by regular expression, and logs result using MacOS unified logging (os_log).
+Bare-bones MacOS syslog host. Accepts input on UDP port 514, parses input by regular expression, and logs result using MacOS unified logging (os_log). MacOS 10.14 or later only.
 
 To use as a syslog daemon, perform the following steps from the #install# directory:
 1. sudo cp com.wireframesoftware.wirelog.plist to /Library/Launchdaemons/com.wireframesoftware.wirelog.plist
