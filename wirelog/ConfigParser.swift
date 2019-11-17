@@ -148,6 +148,10 @@ class Configuration {
         }
     }
     
+    /// Parses the host IP addresses following a log spec and assignes the given spec to those hosts
+    /// - Parameters:
+    ///   - spec: The preceeding log spec
+    ///   - hostBlock: The block of text containing the host IP addresses
     private static func assign(spec: Spec, toHosts hostBlock: Substring) {
         let lines = hostBlock.split(separator: "\n")
         
