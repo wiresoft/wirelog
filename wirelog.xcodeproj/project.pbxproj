@@ -3,13 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		623F0414231D93CC00D4DA58 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F0413231D93CC00D4DA58 /* main.swift */; };
 		623F041B231DB43E00D4DA58 /* LogReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F041A231DB43E00D4DA58 /* LogReceiver.swift */; };
 		623F041D231DF9A300D4DA58 /* ConfigParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F041C231DF9A300D4DA58 /* ConfigParser.swift */; };
+		6250B0522384C3D600DF0AC6 /* Parser in Frameworks */ = {isa = PBXBuildFile; productRef = 6250B0512384C3D600DF0AC6 /* Parser */; };
+		6250B05A23889AD700DF0AC6 /* Wirelog_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6250B05923889AD700DF0AC6 /* Wirelog_Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,10 +31,21 @@
 		623F0413231D93CC00D4DA58 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		623F041A231DB43E00D4DA58 /* LogReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogReceiver.swift; sourceTree = "<group>"; };
 		623F041C231DF9A300D4DA58 /* ConfigParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigParser.swift; sourceTree = "<group>"; };
+		6250B05723889AD700DF0AC6 /* Wirelog Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wirelog Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6250B05923889AD700DF0AC6 /* Wirelog_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wirelog_Tests.swift; sourceTree = "<group>"; };
+		6250B05B23889AD700DF0AC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		623F040D231D93CC00D4DA58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6250B0522384C3D600DF0AC6 /* Parser in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6250B05423889AD700DF0AC6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -45,7 +58,8 @@
 		623F0407231D93CC00D4DA58 = {
 			isa = PBXGroup;
 			children = (
-				623F0412231D93CC00D4DA58 /* wirelog */,
+				623F0412231D93CC00D4DA58 /* Wirelog */,
+				6250B05823889AD700DF0AC6 /* Wirelog Tests */,
 				623F0411231D93CC00D4DA58 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,18 +68,28 @@
 			isa = PBXGroup;
 			children = (
 				623F0410231D93CC00D4DA58 /* wirelogd */,
+				6250B05723889AD700DF0AC6 /* Wirelog Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		623F0412231D93CC00D4DA58 /* wirelog */ = {
+		623F0412231D93CC00D4DA58 /* Wirelog */ = {
 			isa = PBXGroup;
 			children = (
 				623F0413231D93CC00D4DA58 /* main.swift */,
 				623F041A231DB43E00D4DA58 /* LogReceiver.swift */,
 				623F041C231DF9A300D4DA58 /* ConfigParser.swift */,
 			);
-			path = wirelog;
+			path = Wirelog;
+			sourceTree = "<group>";
+		};
+		6250B05823889AD700DF0AC6 /* Wirelog Tests */ = {
+			isa = PBXGroup;
+			children = (
+				6250B05923889AD700DF0AC6 /* Wirelog_Tests.swift */,
+				6250B05B23889AD700DF0AC6 /* Info.plist */,
+			);
+			path = "Wirelog Tests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -84,9 +108,29 @@
 			dependencies = (
 			);
 			name = wirelogd;
+			packageProductDependencies = (
+				6250B0512384C3D600DF0AC6 /* Parser */,
+			);
 			productName = wirelog;
 			productReference = 623F0410231D93CC00D4DA58 /* wirelogd */;
 			productType = "com.apple.product-type.tool";
+		};
+		6250B05623889AD700DF0AC6 /* Wirelog Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6250B05C23889AD700DF0AC6 /* Build configuration list for PBXNativeTarget "Wirelog Tests" */;
+			buildPhases = (
+				6250B05323889AD700DF0AC6 /* Sources */,
+				6250B05423889AD700DF0AC6 /* Frameworks */,
+				6250B05523889AD700DF0AC6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Wirelog Tests";
+			productName = "Wirelog Tests";
+			productReference = 6250B05723889AD700DF0AC6 /* Wirelog Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -94,12 +138,15 @@
 		623F0408231D93CC00D4DA58 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1030;
+				LastSwiftUpdateCheck = 1120;
 				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = "Noah Desch";
 				TargetAttributes = {
 					623F040F231D93CC00D4DA58 = {
 						CreatedOnToolsVersion = 10.3;
+					};
+					6250B05623889AD700DF0AC6 = {
+						CreatedOnToolsVersion = 11.2.1;
 					};
 				};
 			};
@@ -111,14 +158,28 @@
 				en,
 			);
 			mainGroup = 623F0407231D93CC00D4DA58;
+			packageReferences = (
+				6250B0502384C3D600DF0AC6 /* XCRemoteSwiftPackageReference "Parser" */,
+			);
 			productRefGroup = 623F0411231D93CC00D4DA58 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				623F040F231D93CC00D4DA58 /* wirelogd */,
+				6250B05623889AD700DF0AC6 /* Wirelog Tests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6250B05523889AD700DF0AC6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		623F040C231D93CC00D4DA58 /* Sources */ = {
@@ -128,6 +189,14 @@
 				623F0414231D93CC00D4DA58 /* main.swift in Sources */,
 				623F041B231DB43E00D4DA58 /* LogReceiver.swift in Sources */,
 				623F041D231DF9A300D4DA58 /* ConfigParser.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6250B05323889AD700DF0AC6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6250B05A23889AD700DF0AC6 /* Wirelog_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,7 +254,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -240,7 +309,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -269,6 +338,42 @@
 			};
 			name = Release;
 		};
+		6250B05D23889AD700DF0AC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = B993M5RZ2J;
+				INFOPLIST_FILE = "Wirelog Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wireframesoftware.Wirelog-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		6250B05E23889AD700DF0AC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = B993M5RZ2J;
+				INFOPLIST_FILE = "Wirelog Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wireframesoftware.Wirelog-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -290,7 +395,35 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		6250B05C23889AD700DF0AC6 /* Build configuration list for PBXNativeTarget "Wirelog Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6250B05D23889AD700DF0AC6 /* Debug */,
+				6250B05E23889AD700DF0AC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6250B0502384C3D600DF0AC6 /* XCRemoteSwiftPackageReference "Parser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "ssh://deschnl@Banshee.local/Users/Shared/scm/Parser";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6250B0512384C3D600DF0AC6 /* Parser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6250B0502384C3D600DF0AC6 /* XCRemoteSwiftPackageReference "Parser" */;
+			productName = Parser;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 623F0408231D93CC00D4DA58 /* Project object */;
 }
