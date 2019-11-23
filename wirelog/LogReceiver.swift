@@ -10,6 +10,9 @@ import Foundation
 import os
 import Network
 
+let networkLogCtx = OSLog(subsystem: "com.wireframesoftware.wirelog", category: "Network")
+let parsingLogCtx = OSLog(subsystem: "com.wireframesoftware.wirelog", category: "Parsing")
+
 class LogReceiver {
     
     /// The formatter for this connection

@@ -11,6 +11,8 @@ import os
 import Network
 import Parser
 
+fileprivate let cfgFileLogCtx = OSLog(subsystem: "com.wireframesoftware.wirelog", category: "Config")
+
 fileprivate func keywordCharacters(_ char: Character) -> Bool {
     return char.isLetter && char.isUppercase
 }
@@ -18,9 +20,7 @@ fileprivate func keywordCharacters(_ char: Character) -> Bool {
 fileprivate struct StringNode: SyntaxNode {
     var onSuccess: ((SyntaxNode) -> Void)?
     var text: Substring
-    
-    var child: SyntaxNode? { fatalError() }
-    subscript(index: Int) -> SyntaxNode? { fatalError() }
+    var child: [SyntaxNode] { return [] }
     
     mutating func parse(from text: inout Substring) -> Bool {
         text.dropWhitespace()
@@ -51,9 +51,7 @@ fileprivate struct IPAddrLiteralNode<Address>: SyntaxNode
 {
     var onSuccess: ((SyntaxNode) -> Void)?
     var text: Substring
-    var child: SyntaxNode? { fatalError() }
-    subscript(index: Int) -> SyntaxNode? { fatalError() }
-        
+    var child: [SyntaxNode] { return [] }
     var address: Address?
     
     mutating func parse(from text: inout Substring) -> Bool {
@@ -100,7 +98,7 @@ class Configuration {
         case category
         case message
         
-        init?(from string: String) {
+        init?<T>(from string: T) where T: StringProtocol {
             switch string {
             case "timestamp":
                 self = .timestamp
@@ -205,19 +203,13 @@ class Configuration {
     /// Parse config from file
     ///
     /// - Parameter file: URL of the config file to read
-    static func parse(_ file: URL) {
-        guard let configString = try? String(contentsOf: file) else {
-            os_log(.error, log: cfgFileLogCtx, "Unable to read config file: %{public}", file.absoluteString)
-            exit(-2)
-        }
+    static func parse(_ configString: String) {
         
         let nicknameLine = Nodes([
             StringNode(),
             StringNode(),
             ], onSuccess: { node in
-                guard let lvalue = node[0] else { return }
-                guard let rvalue = node[1] else { return }
-                self.assign(nickname: String(rvalue.text), to: String(lvalue.text))
+                self.assign(nickname: String(node.child[1].text), to: String(node.child[0].text))
         })
         
         let nicknameBlock = Nodes([
@@ -246,10 +238,7 @@ class Configuration {
                 IPAddrLiteralNode<IPv6Address>(),
             ]), separatedBy: nil)
             ], onSuccess: { node in
-                guard let node = node as? Nodes else { return }
-                guard let fmtNodes = node.nodes[2] as? Nodes else { return }
-                guard let hostNodes = node.nodes[4] as? Repeating else { return }
-                self.assign(format: fmtNodes, to: hostNodes)
+                self.assign(format: node.child[2], to: node.child[4])
         })
         
         var confFileSyntax = Repeating(Options([
@@ -260,10 +249,12 @@ class Configuration {
         var confSubstr = configString[...]
         if !confFileSyntax.parse(from: &confSubstr) {
             os_log(.info, log: cfgFileLogCtx, "Error parsing config file")
+            exit(-2)
         }
         confSubstr.dropWhitespace()
         if confSubstr.count > 0 {
             os_log(.error, log: cfgFileLogCtx, "Syntax error in config file starting from:\n%{public}s", String(confSubstr))
+            exit(-2)
         }
     }
     
@@ -279,37 +270,37 @@ class Configuration {
     /// - Parameters:
     ///   - spec: The preceeding log spec
     ///   - hostBlock: The block of text containing the host IP addresses
-    private static func assign(format: Nodes, to hosts: Repeating) {
-        guard let regexNode = format.nodes[0] as? NonEmptyLineNode else { fatalError("Unexpected node type") }
-        guard let repeatingCaptures = format.nodes[1] as? Repeating else { fatalError("Unexpected node type") }
-        let regexPattern = String(regexNode.value)
+    private static func assign(format: SyntaxNode, to hosts: SyntaxNode) {
+        let regexStr = String(format.child[0].text)
+        let logRegex: NSRegularExpression
         
         do {
-            let tmpRegex = try NSRegularExpression(pattern: regexPattern, options: [])
+            logRegex = try NSRegularExpression(pattern: regexStr, options: [])
         } catch {
-            fatalError("Unable to parse regex: \"\(regexPattern)\"")
+            os_log(.fault, log: cfgFileLogCtx, "Unable to parse regex: %{public}s", regexStr)
+            exit(-2)
         }
         
-        for node in format.nodes.dropFirst() {
-            guard let node = node as?
+        let captureTargets: [Target] = format.child.dropFirst().map { node in
+            if let result = Target(from: node.text) { return result }
+            os_log(.fault, log: cfgFileLogCtx, "Invalid subexpression target: %{public}s", String(node.text))
+            exit(-2)
         }
+        let logSpec = Spec(regex: logRegex, captureList: captureTargets)
         
-        for line in lines {
-            let line = line.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-            if line.count > 0 {
-                if let addr = IPv4Address(line) {
-                    ipv4HostSpecs[addr] = spec
-                    os_log(.info, log: cfgFileLogCtx, "Assigned log spec for host: %{public}s", addr.debugDescription)
-                } else if let addr = IPv6Address(line) {
-                    ipv6HostSpecs[addr] = spec
-                    os_log(.info, log: cfgFileLogCtx, "Assigned log spec for host: %{public}s", addr.debugDescription)
-                } else if line == "*" {
-                    defaultSpec = spec
-                    os_log(.info, log: cfgFileLogCtx, "Assigned default log spec")
-                } else if line.count > 1 {
-                    namedHostSpecs[line] = spec
-                    os_log(.info, log: cfgFileLogCtx, "Assigned log spec for host: %{public}s", line)
-                }
+        for hostAddrNode in hosts.child {
+            if let node = hostAddrNode as? IPAddrLiteralNode<IPv4Address> {
+                guard let address = node.address else { fatalError() }
+                ipv4HostSpecs[address] = logSpec
+                os_log(.info, log: cfgFileLogCtx, "Assigned log spec for host: %{public}s", address.debugDescription)
+            } else if let node = hostAddrNode as? IPAddrLiteralNode<IPv6Address> {
+                guard let address = node.address else { fatalError() }
+                ipv6HostSpecs[address] = logSpec
+                os_log(.info, log: cfgFileLogCtx, "Assigned log spec for host: %{public}s", address.debugDescription)
+            } else if let node = hostAddrNode as? Char {
+                guard node.character == "*" else { fatalError() }
+                defaultSpec = logSpec
+                os_log(.info, log: cfgFileLogCtx, "Assigned default log spec")
             }
         }
     }

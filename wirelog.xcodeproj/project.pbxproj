@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		622162C72388EC0C00FD7797 /* Parser in Frameworks */ = {isa = PBXBuildFile; productRef = 622162C62388EC0C00FD7797 /* Parser */; };
 		623F0414231D93CC00D4DA58 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F0413231D93CC00D4DA58 /* main.swift */; };
 		623F041B231DB43E00D4DA58 /* LogReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F041A231DB43E00D4DA58 /* LogReceiver.swift */; };
 		623F041D231DF9A300D4DA58 /* ConfigParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F041C231DF9A300D4DA58 /* ConfigParser.swift */; };
 		6250B0522384C3D600DF0AC6 /* Parser in Frameworks */ = {isa = PBXBuildFile; productRef = 6250B0512384C3D600DF0AC6 /* Parser */; };
 		6250B05A23889AD700DF0AC6 /* Wirelog_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6250B05923889AD700DF0AC6 /* Wirelog_Tests.swift */; };
+		6250B05F23889BBB00DF0AC6 /* ConfigParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F041C231DF9A300D4DA58 /* ConfigParser.swift */; };
+		6250B06023889BBE00DF0AC6 /* LogReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F041A231DB43E00D4DA58 /* LogReceiver.swift */; };
+		6250B06223889C1D00DF0AC6 /* TestData.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6250B06123889C1D00DF0AC6 /* TestData.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +38,7 @@
 		6250B05723889AD700DF0AC6 /* Wirelog Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wirelog Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6250B05923889AD700DF0AC6 /* Wirelog_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wirelog_Tests.swift; sourceTree = "<group>"; };
 		6250B05B23889AD700DF0AC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6250B06123889C1D00DF0AC6 /* TestData.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TestData.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,18 +54,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				622162C72388EC0C00FD7797 /* Parser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		622162C52388EC0C00FD7797 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		623F0407231D93CC00D4DA58 = {
 			isa = PBXGroup;
 			children = (
 				623F0412231D93CC00D4DA58 /* Wirelog */,
 				6250B05823889AD700DF0AC6 /* Wirelog Tests */,
 				623F0411231D93CC00D4DA58 /* Products */,
+				622162C52388EC0C00FD7797 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,6 +102,7 @@
 			children = (
 				6250B05923889AD700DF0AC6 /* Wirelog_Tests.swift */,
 				6250B05B23889AD700DF0AC6 /* Info.plist */,
+				6250B06123889C1D00DF0AC6 /* TestData.xcassets */,
 			);
 			path = "Wirelog Tests";
 			sourceTree = "<group>";
@@ -128,6 +143,9 @@
 			dependencies = (
 			);
 			name = "Wirelog Tests";
+			packageProductDependencies = (
+				622162C62388EC0C00FD7797 /* Parser */,
+			);
 			productName = "Wirelog Tests";
 			productReference = 6250B05723889AD700DF0AC6 /* Wirelog Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -176,6 +194,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6250B06223889C1D00DF0AC6 /* TestData.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,7 +215,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6250B05F23889BBB00DF0AC6 /* ConfigParser.swift in Sources */,
 				6250B05A23889AD700DF0AC6 /* Wirelog_Tests.swift in Sources */,
+				6250B06023889BBE00DF0AC6 /* LogReceiver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +439,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		622162C62388EC0C00FD7797 /* Parser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6250B0502384C3D600DF0AC6 /* XCRemoteSwiftPackageReference "Parser" */;
+			productName = Parser;
+		};
 		6250B0512384C3D600DF0AC6 /* Parser */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6250B0502384C3D600DF0AC6 /* XCRemoteSwiftPackageReference "Parser" */;

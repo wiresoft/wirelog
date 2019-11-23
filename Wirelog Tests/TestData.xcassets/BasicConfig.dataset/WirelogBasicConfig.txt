@@ -1,0 +1,34 @@
+NICKNAMES {
+	"local.U7HD,7483c2705175"	"WiFi AP 2"
+	"local.U7HD,7483c219c6fb"	"WiFi AP 1"	
+}
+
+FORMAT {
+	<\d+>\s*(.+)
+	message
+}
+
+*
+
+FORMAT {
+	<\d+>\s?.{15}\s(\w+)\s([^\s:]+)\s?:?\s?(.+)
+	host
+	category
+	message
+}
+
+192.168.40.1
+fd4d:cbc5:1802:40::1
+192.168.40.2
+fd4d:cbc5:1802:40::2
+
+FORMAT {
+	<\d+>\s?.{15}\s(\w+,\w+)[^:]*:\s([^\s:]*):\s?(.+)
+	host
+	category
+	message
+}
+
+192.168.40.3
+192.168.40.4
+

@@ -10,22 +10,34 @@ import Foundation
 import os
 import Network
 
-let networkLogCtx = OSLog(subsystem: "com.wireframesoftware.wirelog", category: "Network")
-let cfgFileLogCtx = OSLog(subsystem: "com.wireframesoftware.wirelog", category: "Config")
-let parsingLogCtx = OSLog(subsystem: "com.wireframesoftware.wirelog", category: "Parsing")
+/// Log context for program initialization
+let startupLogCtx = OSLog(subsystem: "com.wireframesoftware.wirelog", category: "Startup")
 
-
+/// Listen for incoming messages on the main thread
 let listenQueue = DispatchQueue.main
+
+/// Parse and log messages with loq QoS on a background thread
 let loggingQueue = DispatchQueue(label: "com.wireframesoftware.wirelog.logging", qos: .background, attributes: [], autoreleaseFrequency: .workItem, target: nil)
 
 let listener: NWListener
 var connections = [LogReceiver]()
 
 
-os_log(.info, log: cfgFileLogCtx, "Reading config file...")
-Configuration.parse(URL(fileURLWithPath: CommandLine.arguments[1]))
+//
+// MARK: - Read Configuration
+//
+os_log(.info, log: startupLogCtx, "Reading config file...")
+guard let configString = try? String(contentsOf: URL(fileURLWithPath: CommandLine.arguments[1])) else {
+    os_log(.error, log: startupLogCtx, "Unable to read config file: %{public}", CommandLine.arguments[1])
+    exit(-2)
+}
+Configuration.parse(configString)
 
-os_log(.info, log: networkLogCtx, "Starting UDP listener on port 514...")
+
+//
+// MARK: - Start the Network Listener
+//
+os_log(.info, log: startupLogCtx, "Starting UDP listener on port 514...")
 do {
     let parameters = NWParameters(dtls: nil, udp: NWProtocolUDP.Options())
     parameters.prohibitedInterfaceTypes = [.cellular]
@@ -82,9 +94,12 @@ do {
     listener.start(queue: listenQueue)
     
 } catch {
-    os_log(.error, log: networkLogCtx, "Unable to create UDP listener on port 514")
+    os_log(.error, log: startupLogCtx, "Unable to create UDP listener on port 514")
     exit(-1)
 }
 
-/// Start the run-loop so we stay open
+
+//
+// MARK: - Start the run-loop so we stay open
+//
 RunLoop.main.run();
