@@ -168,7 +168,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 623F040B231D93CC00D4DA58 /* Build configuration list for PBXProject "wirelog" */;
+			buildConfigurationList = 623F040B231D93CC00D4DA58 /* Build configuration list for PBXProject "Wirelog" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -398,7 +398,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		623F040B231D93CC00D4DA58 /* Build configuration list for PBXProject "wirelog" */ = {
+		623F040B231D93CC00D4DA58 /* Build configuration list for PBXProject "Wirelog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				623F0415231D93CC00D4DA58 /* Debug */,
