@@ -1,0 +1,455 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		622162C72388EC0C00FD7797 /* Parser in Frameworks */ = {isa = PBXBuildFile; productRef = 622162C62388EC0C00FD7797 /* Parser */; };
+		622162C92388EF4B00FD7797 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622162C82388EF4B00FD7797 /* main.swift */; };
+		623F041B231DB43E00D4DA58 /* LogReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F041A231DB43E00D4DA58 /* LogReceiver.swift */; };
+		623F041D231DF9A300D4DA58 /* ConfigParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F041C231DF9A300D4DA58 /* ConfigParser.swift */; };
+		6250B0522384C3D600DF0AC6 /* Parser in Frameworks */ = {isa = PBXBuildFile; productRef = 6250B0512384C3D600DF0AC6 /* Parser */; };
+		6250B05A23889AD700DF0AC6 /* Wirelog_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6250B05923889AD700DF0AC6 /* Wirelog_Tests.swift */; };
+		6250B05F23889BBB00DF0AC6 /* ConfigParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F041C231DF9A300D4DA58 /* ConfigParser.swift */; };
+		6250B06023889BBE00DF0AC6 /* LogReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F041A231DB43E00D4DA58 /* LogReceiver.swift */; };
+		6250B06223889C1D00DF0AC6 /* TestData.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6250B06123889C1D00DF0AC6 /* TestData.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		623F040E231D93CC00D4DA58 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		622162C82388EF4B00FD7797 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		623F0410231D93CC00D4DA58 /* wirelogd */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = wirelogd; sourceTree = BUILT_PRODUCTS_DIR; };
+		623F041A231DB43E00D4DA58 /* LogReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogReceiver.swift; sourceTree = "<group>"; };
+		623F041C231DF9A300D4DA58 /* ConfigParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigParser.swift; sourceTree = "<group>"; };
+		6250B05723889AD700DF0AC6 /* Wirelog Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wirelog Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6250B05923889AD700DF0AC6 /* Wirelog_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wirelog_Tests.swift; sourceTree = "<group>"; };
+		6250B05B23889AD700DF0AC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6250B06123889C1D00DF0AC6 /* TestData.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TestData.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		623F040D231D93CC00D4DA58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6250B0522384C3D600DF0AC6 /* Parser in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6250B05423889AD700DF0AC6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				622162C72388EC0C00FD7797 /* Parser in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		622162C52388EC0C00FD7797 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		623F0407231D93CC00D4DA58 = {
+			isa = PBXGroup;
+			children = (
+				623F0412231D93CC00D4DA58 /* Wirelog */,
+				6250B05823889AD700DF0AC6 /* Wirelog Tests */,
+				623F0411231D93CC00D4DA58 /* Products */,
+				622162C52388EC0C00FD7797 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		623F0411231D93CC00D4DA58 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				623F0410231D93CC00D4DA58 /* wirelogd */,
+				6250B05723889AD700DF0AC6 /* Wirelog Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		623F0412231D93CC00D4DA58 /* Wirelog */ = {
+			isa = PBXGroup;
+			children = (
+				622162C82388EF4B00FD7797 /* main.swift */,
+				623F041A231DB43E00D4DA58 /* LogReceiver.swift */,
+				623F041C231DF9A300D4DA58 /* ConfigParser.swift */,
+			);
+			path = Wirelog;
+			sourceTree = "<group>";
+		};
+		6250B05823889AD700DF0AC6 /* Wirelog Tests */ = {
+			isa = PBXGroup;
+			children = (
+				6250B05923889AD700DF0AC6 /* Wirelog_Tests.swift */,
+				6250B05B23889AD700DF0AC6 /* Info.plist */,
+				6250B06123889C1D00DF0AC6 /* TestData.xcassets */,
+			);
+			path = "Wirelog Tests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		623F040F231D93CC00D4DA58 /* wirelogd */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 623F0417231D93CC00D4DA58 /* Build configuration list for PBXNativeTarget "wirelogd" */;
+			buildPhases = (
+				623F040C231D93CC00D4DA58 /* Sources */,
+				623F040D231D93CC00D4DA58 /* Frameworks */,
+				623F040E231D93CC00D4DA58 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = wirelogd;
+			packageProductDependencies = (
+				6250B0512384C3D600DF0AC6 /* Parser */,
+			);
+			productName = wirelog;
+			productReference = 623F0410231D93CC00D4DA58 /* wirelogd */;
+			productType = "com.apple.product-type.tool";
+		};
+		6250B05623889AD700DF0AC6 /* Wirelog Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6250B05C23889AD700DF0AC6 /* Build configuration list for PBXNativeTarget "Wirelog Tests" */;
+			buildPhases = (
+				6250B05323889AD700DF0AC6 /* Sources */,
+				6250B05423889AD700DF0AC6 /* Frameworks */,
+				6250B05523889AD700DF0AC6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Wirelog Tests";
+			packageProductDependencies = (
+				622162C62388EC0C00FD7797 /* Parser */,
+			);
+			productName = "Wirelog Tests";
+			productReference = 6250B05723889AD700DF0AC6 /* Wirelog Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		623F0408231D93CC00D4DA58 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = "Noah Desch";
+				TargetAttributes = {
+					623F040F231D93CC00D4DA58 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					6250B05623889AD700DF0AC6 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 623F040B231D93CC00D4DA58 /* Build configuration list for PBXProject "wirelog" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 623F0407231D93CC00D4DA58;
+			packageReferences = (
+				6250B0502384C3D600DF0AC6 /* XCRemoteSwiftPackageReference "Parser" */,
+			);
+			productRefGroup = 623F0411231D93CC00D4DA58 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				623F040F231D93CC00D4DA58 /* wirelogd */,
+				6250B05623889AD700DF0AC6 /* Wirelog Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6250B05523889AD700DF0AC6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6250B06223889C1D00DF0AC6 /* TestData.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		623F040C231D93CC00D4DA58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				623F041B231DB43E00D4DA58 /* LogReceiver.swift in Sources */,
+				623F041D231DF9A300D4DA58 /* ConfigParser.swift in Sources */,
+				622162C92388EF4B00FD7797 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6250B05323889AD700DF0AC6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6250B05F23889BBB00DF0AC6 /* ConfigParser.swift in Sources */,
+				6250B05A23889AD700DF0AC6 /* Wirelog_Tests.swift in Sources */,
+				6250B06023889BBE00DF0AC6 /* LogReceiver.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		623F0415231D93CC00D4DA58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		623F0416231D93CC00D4DA58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		623F0418231D93CC00D4DA58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B993M5RZ2J;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		623F0419231D93CC00D4DA58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B993M5RZ2J;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		6250B05D23889AD700DF0AC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = B993M5RZ2J;
+				INFOPLIST_FILE = "Wirelog Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wireframesoftware.Wirelog-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		6250B05E23889AD700DF0AC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = B993M5RZ2J;
+				INFOPLIST_FILE = "Wirelog Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wireframesoftware.Wirelog-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		623F040B231D93CC00D4DA58 /* Build configuration list for PBXProject "wirelog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				623F0415231D93CC00D4DA58 /* Debug */,
+				623F0416231D93CC00D4DA58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		623F0417231D93CC00D4DA58 /* Build configuration list for PBXNativeTarget "wirelogd" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				623F0418231D93CC00D4DA58 /* Debug */,
+				623F0419231D93CC00D4DA58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6250B05C23889AD700DF0AC6 /* Build configuration list for PBXNativeTarget "Wirelog Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6250B05D23889AD700DF0AC6 /* Debug */,
+				6250B05E23889AD700DF0AC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6250B0502384C3D600DF0AC6 /* XCRemoteSwiftPackageReference "Parser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "ssh://deschnl@Banshee.local/Users/Shared/scm/Parser";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		622162C62388EC0C00FD7797 /* Parser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6250B0502384C3D600DF0AC6 /* XCRemoteSwiftPackageReference "Parser" */;
+			productName = Parser;
+		};
+		6250B0512384C3D600DF0AC6 /* Parser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6250B0502384C3D600DF0AC6 /* XCRemoteSwiftPackageReference "Parser" */;
+			productName = Parser;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 623F0408231D93CC00D4DA58 /* Project object */;
+}
