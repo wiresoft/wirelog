@@ -17,7 +17,7 @@
                BlueprintIdentifier = "623F040F231D93CC00D4DA58"
                BuildableName = "wirelogd"
                BlueprintName = "wirelogd"
-               ReferencedContainer = "container:wirelog.xcodeproj">
+               ReferencedContainer = "container:Wirelog.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -38,7 +38,7 @@
                BlueprintIdentifier = "6250B05623889AD700DF0AC6"
                BuildableName = "Wirelog Tests.xctest"
                BlueprintName = "Wirelog Tests"
-               ReferencedContainer = "container:wirelog.xcodeproj">
+               ReferencedContainer = "container:Wirelog.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -60,7 +60,7 @@
             BlueprintIdentifier = "623F040F231D93CC00D4DA58"
             BuildableName = "wirelogd"
             BlueprintName = "wirelogd"
-            ReferencedContainer = "container:wirelog.xcodeproj">
+            ReferencedContainer = "container:Wirelog.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -77,7 +77,7 @@
             BlueprintIdentifier = "623F040F231D93CC00D4DA58"
             BuildableName = "wirelogd"
             BlueprintName = "wirelogd"
-            ReferencedContainer = "container:wirelog.xcodeproj">
+            ReferencedContainer = "container:Wirelog.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
