@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		622162C72388EC0C00FD7797 /* Parser in Frameworks */ = {isa = PBXBuildFile; productRef = 622162C62388EC0C00FD7797 /* Parser */; };
-		623F0414231D93CC00D4DA58 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F0413231D93CC00D4DA58 /* main.swift */; };
+		622162C92388EF4B00FD7797 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622162C82388EF4B00FD7797 /* main.swift */; };
 		623F041B231DB43E00D4DA58 /* LogReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F041A231DB43E00D4DA58 /* LogReceiver.swift */; };
 		623F041D231DF9A300D4DA58 /* ConfigParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F041C231DF9A300D4DA58 /* ConfigParser.swift */; };
 		6250B0522384C3D600DF0AC6 /* Parser in Frameworks */ = {isa = PBXBuildFile; productRef = 6250B0512384C3D600DF0AC6 /* Parser */; };
@@ -31,8 +31,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		622162C82388EF4B00FD7797 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		623F0410231D93CC00D4DA58 /* wirelogd */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = wirelogd; sourceTree = BUILT_PRODUCTS_DIR; };
-		623F0413231D93CC00D4DA58 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		623F041A231DB43E00D4DA58 /* LogReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogReceiver.swift; sourceTree = "<group>"; };
 		623F041C231DF9A300D4DA58 /* ConfigParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigParser.swift; sourceTree = "<group>"; };
 		6250B05723889AD700DF0AC6 /* Wirelog Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wirelog Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,7 +90,7 @@
 		623F0412231D93CC00D4DA58 /* Wirelog */ = {
 			isa = PBXGroup;
 			children = (
-				623F0413231D93CC00D4DA58 /* main.swift */,
+				622162C82388EF4B00FD7797 /* main.swift */,
 				623F041A231DB43E00D4DA58 /* LogReceiver.swift */,
 				623F041C231DF9A300D4DA58 /* ConfigParser.swift */,
 			);
@@ -205,9 +205,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				623F0414231D93CC00D4DA58 /* main.swift in Sources */,
 				623F041B231DB43E00D4DA58 /* LogReceiver.swift in Sources */,
 				623F041D231DF9A300D4DA58 /* ConfigParser.swift in Sources */,
+				622162C92388EF4B00FD7797 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
