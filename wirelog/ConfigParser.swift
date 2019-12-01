@@ -17,6 +17,11 @@ fileprivate func keywordCharacters(_ char: Character) -> Bool {
     return char.isLetter && char.isUppercase
 }
 
+fileprivate func matchIdentifierChars(_ char: Character) -> Bool {
+    return char.isLetter && char.isLowercase
+}
+
+
 fileprivate struct StringNode: SyntaxNode {
     var onSuccess: ((SyntaxNode) -> Void)?
     var text: Substring
@@ -60,7 +65,7 @@ fileprivate struct IPAddrLiteralNode<Address>: SyntaxNode
         
         let _ = tmp.consume(while: {$0.isHexDigit || $0 == "." || $0 == ":"})
         guard tmp.first?.isWhitespace ?? true else { return false }
-        let capture = text.base[text.startIndex...tmp.startIndex]
+        let capture = text.base[text.startIndex..<tmp.startIndex]
         
         if let value = Address(String(capture)) {
             self.address = value
@@ -73,7 +78,7 @@ fileprivate struct IPAddrLiteralNode<Address>: SyntaxNode
     }
     
     var debugDescription: String {
-        return String(describing: self.text)
+        return "IP(\(String(describing: self.text)))"
     }
     
     init() {
@@ -119,34 +124,6 @@ class Configuration {
         let regex: NSRegularExpression
         var captureList: [Target]
         
-        init?<T: StringProtocol>(from str: T) {
-            var tmpRegex: NSRegularExpression? = nil
-            var tmpCaptureList = [Target]()
-            let lines = str.split(separator: "\n")
-            
-            for line in lines {
-                let line = line.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-                if line.count > 0 {
-                    if tmpRegex == nil {
-                        do {
-                            tmpRegex = try NSRegularExpression(pattern: line, options: [])
-                        } catch {
-                            fatalError("Unable to parse regex: \"\(line)\"")
-                        }
-                    } else {
-                        if let target = Target(from: line) {
-                            tmpCaptureList += [target]
-                        } else {
-                            fatalError("Invalid log target: \"\(line)\"")
-                        }
-                    }
-                }
-            }
-            
-            self.regex = tmpRegex!
-            self.captureList = tmpCaptureList
-        }
-        
         init(regex: NSRegularExpression, captureList: [Target]) {
             self.regex = regex
             self.captureList = captureList
@@ -166,7 +143,7 @@ class Configuration {
     static private var namedHostSpecs = [String: Spec]()
     
     /// Default log Spec for unspecified hosts
-    static private(set) var defaultSpec = Spec(
+    static private var defaultSpec = Spec(
         regex: try! NSRegularExpression(pattern: #"<\d+>\s*(.+)"#, options: []),
         captureList: [.message]
     )
@@ -225,10 +202,10 @@ class Configuration {
             Nodes([
                 Identifier(chars: { !$0.isWhitespace }),
                 Repeating(Options([
-                    Keyword("timestamp", charCheck: keywordCharacters),
-                    Keyword("host", charCheck: keywordCharacters),
-                    Keyword("category", charCheck: keywordCharacters),
-                    Keyword("message", charCheck: keywordCharacters),
+                    Keyword("timestamp", charCheck: matchIdentifierChars),
+                    Keyword("host", charCheck: matchIdentifierChars),
+                    Keyword("category", charCheck: matchIdentifierChars),
+                    Keyword("message", charCheck: matchIdentifierChars),
                 ]), separatedBy: nil)
             ]),
             Char("}"),
@@ -281,7 +258,9 @@ class Configuration {
             exit(-2)
         }
         
-        let captureTargets: [Target] = format.child.dropFirst().map { node in
+        guard let captureList = format.child.last else { return } // no subexpressions captured so no log spec
+        
+        let captureTargets: [Target] = captureList.child.map { node in
             if let result = Target(from: node.text) { return result }
             os_log(.fault, log: cfgFileLogCtx, "Invalid subexpression target: %{public}s", String(node.text))
             exit(-2)
@@ -289,15 +268,15 @@ class Configuration {
         let logSpec = Spec(regex: logRegex, captureList: captureTargets)
         
         for hostAddrNode in hosts.child {
-            if let node = hostAddrNode as? IPAddrLiteralNode<IPv4Address> {
+            if let node = hostAddrNode.child.first as? IPAddrLiteralNode<IPv4Address> {
                 guard let address = node.address else { fatalError() }
                 ipv4HostSpecs[address] = logSpec
                 os_log(.info, log: cfgFileLogCtx, "Assigned log spec for host: %{public}s", address.debugDescription)
-            } else if let node = hostAddrNode as? IPAddrLiteralNode<IPv6Address> {
+            } else if let node = hostAddrNode.child.first as? IPAddrLiteralNode<IPv6Address> {
                 guard let address = node.address else { fatalError() }
                 ipv6HostSpecs[address] = logSpec
                 os_log(.info, log: cfgFileLogCtx, "Assigned log spec for host: %{public}s", address.debugDescription)
-            } else if let node = hostAddrNode as? Char {
+            } else if let node = hostAddrNode.child.first as? Char {
                 guard node.character == "*" else { fatalError() }
                 defaultSpec = logSpec
                 os_log(.info, log: cfgFileLogCtx, "Assigned default log spec")

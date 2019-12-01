@@ -1,6 +1,6 @@
 NICKNAMES {
-	"local.U7HD,7483c2705175"	"WiFi AP 2"
-	"local.U7HD,7483c219c6fb"	"WiFi AP 1"	
+	"local.U7HD,abcdef123456"	"Alias 1"
+	"$$$Real host name$$$"		"$$$Alias2$$$"	
 }
 
 FORMAT {
@@ -17,10 +17,10 @@ FORMAT {
 	message
 }
 
-192.168.40.1
-fd4d:cbc5:1802:40::1
-192.168.40.2
-fd4d:cbc5:1802:40::2
+10.10.250.1
+2600:6f64:cc08:40::1
+10.10.250.2
+2600:6f64:cc08:40::2
 
 FORMAT {
 	<\d+>\s?.{15}\s(\w+,\w+)[^:]*:\s([^\s:]*):\s?(.+)
@@ -29,6 +29,6 @@ FORMAT {
 	message
 }
 
-192.168.40.3
-192.168.40.4
+10.10.250.27
+10.10.250.54
 

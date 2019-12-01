@@ -88,7 +88,9 @@ do {
             os_log(.info, log: networkLogCtx,  "Connection state changed: %{public}0s", stateStr)
         }
         con.start(queue: loggingQueue)
-        connections += [LogReceiver(connection: con)]
+        if let receiver = LogReceiver(connection: con) {
+            connections += [receiver]
+        }
     }
     
     listener.start(queue: listenQueue)

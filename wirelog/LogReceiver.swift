@@ -30,7 +30,7 @@ class LogReceiver {
     ///
     /// - Parameters:
     ///   - connection: The connection from which to receive data
-    init(connection: NWConnection) {
+    init?(connection: NWConnection) {
         self.connection = connection
         
         switch (connection.endpoint) {
@@ -48,9 +48,8 @@ class LogReceiver {
                 os_log(.error, log: networkLogCtx, "Unknown host type: %{public}s), using default log spec", connection.endpoint.debugDescription)
             }
         default:
-            self.formatter = Configuration.defaultSpec
-            self.defaultHost = ""
-            os_log(.error, log: networkLogCtx, "Non-network host: %{public}s), using default log spec", connection.endpoint.debugDescription)
+            os_log(.fault, log: networkLogCtx, "Non-network host: %{public}s), ignoring", connection.endpoint.debugDescription)
+            return nil
         }
         
         self.recieve()
