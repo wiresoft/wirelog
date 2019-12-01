@@ -13,10 +13,12 @@ To use as a syslog daemon, perform the following steps from the *install* direct
 8. sudo chown root:staff /usr/local/etc/wirelog/wirelog.conf
 
 # configuration
-The wirelog.conf file consists of FORMAT...ENDFORMAT sections which specify how to interpret remote logs, followed by a list of IPv4 or IPv6 addresses of log clients whose input will be interpreted according to the preceeding FORMAT block. Instead of IP addresses, a "\*" character can be used to define the *default* format for clients not specified in the conf file. 
+The wirelog.conf file consists of FORMAT{...} sections which specify how to interpret remote logs, followed by a list of IPv4 or IPv6 addresses of log clients whose input will be interpreted according to the preceeding FORMAT block. Instead of IP addresses, a "\*" character can be used to define the *default* format for clients not specified in the conf file. 
 
 The first line of the FORMAT block is a regular expression which is matched against each log message from the listed clients. The subsequent lines within the format block contain keywords which determine how each capture expression in the regex is to be used:
 - `host` : Subexpression is the name of the log host. This will be used as the os_log `subsystem` in the form `local.host`
 - `category` : Subexpression will be used as the os_log `category`
 - `timestamp` : Subexpression will be appended to the message as the client-local timestamp. This is sometimes useful to see if logging clients have different time setting from the syslog host.
 - `message` : Subexpression is the content of the log message.
+
+The configuration file can also contain NICKNAMES {...} blocks which allow you to change host names as they appears in the log entries.
