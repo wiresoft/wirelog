@@ -7,15 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		622162C72388EC0C00FD7797 /* Parser in Frameworks */ = {isa = PBXBuildFile; productRef = 622162C62388EC0C00FD7797 /* Parser */; };
 		622162C92388EF4B00FD7797 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622162C82388EF4B00FD7797 /* main.swift */; };
 		623F041B231DB43E00D4DA58 /* LogReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F041A231DB43E00D4DA58 /* LogReceiver.swift */; };
 		623F041D231DF9A300D4DA58 /* ConfigParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F041C231DF9A300D4DA58 /* ConfigParser.swift */; };
-		6250B0522384C3D600DF0AC6 /* Parser in Frameworks */ = {isa = PBXBuildFile; productRef = 6250B0512384C3D600DF0AC6 /* Parser */; };
 		6250B05A23889AD700DF0AC6 /* Wirelog_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6250B05923889AD700DF0AC6 /* Wirelog_Tests.swift */; };
 		6250B05F23889BBB00DF0AC6 /* ConfigParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F041C231DF9A300D4DA58 /* ConfigParser.swift */; };
 		6250B06023889BBE00DF0AC6 /* LogReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F041A231DB43E00D4DA58 /* LogReceiver.swift */; };
 		6250B06223889C1D00DF0AC6 /* TestData.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6250B06123889C1D00DF0AC6 /* TestData.xcassets */; };
+		62F4F655249ECDB900FAA420 /* Parser in Frameworks */ = {isa = PBXBuildFile; productRef = 62F4F654249ECDB900FAA420 /* Parser */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,7 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6250B0522384C3D600DF0AC6 /* Parser in Frameworks */,
+				62F4F655249ECDB900FAA420 /* Parser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,7 +53,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				622162C72388EC0C00FD7797 /* Parser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,7 +122,7 @@
 			);
 			name = wirelogd;
 			packageProductDependencies = (
-				6250B0512384C3D600DF0AC6 /* Parser */,
+				62F4F654249ECDB900FAA420 /* Parser */,
 			);
 			productName = wirelog;
 			productReference = 623F0410231D93CC00D4DA58 /* wirelogd */;
@@ -144,7 +142,6 @@
 			);
 			name = "Wirelog Tests";
 			packageProductDependencies = (
-				622162C62388EC0C00FD7797 /* Parser */,
 			);
 			productName = "Wirelog Tests";
 			productReference = 6250B05723889AD700DF0AC6 /* Wirelog Tests.xctest */;
@@ -178,7 +175,7 @@
 			);
 			mainGroup = 623F0407231D93CC00D4DA58;
 			packageReferences = (
-				6250B0502384C3D600DF0AC6 /* XCRemoteSwiftPackageReference "Parser" */,
+				62F4F653249ECDB900FAA420 /* XCRemoteSwiftPackageReference "Parser" */,
 			);
 			productRefGroup = 623F0411231D93CC00D4DA58 /* Products */;
 			projectDirPath = "";
@@ -431,9 +428,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		6250B0502384C3D600DF0AC6 /* XCRemoteSwiftPackageReference "Parser" */ = {
+		62F4F653249ECDB900FAA420 /* XCRemoteSwiftPackageReference "Parser" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "ssh://deschnl@Banshee.local/Users/Shared/scm/Parser";
+			repositoryURL = "ssh://Banshee.local/users/shared/scm/Parser";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.0.0;
@@ -442,14 +439,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		622162C62388EC0C00FD7797 /* Parser */ = {
+		62F4F654249ECDB900FAA420 /* Parser */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6250B0502384C3D600DF0AC6 /* XCRemoteSwiftPackageReference "Parser" */;
-			productName = Parser;
-		};
-		6250B0512384C3D600DF0AC6 /* Parser */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6250B0502384C3D600DF0AC6 /* XCRemoteSwiftPackageReference "Parser" */;
+			package = 62F4F653249ECDB900FAA420 /* XCRemoteSwiftPackageReference "Parser" */;
 			productName = Parser;
 		};
 /* End XCSwiftPackageProductDependency section */

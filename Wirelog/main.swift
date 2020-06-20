@@ -41,7 +41,6 @@ os_log(.info, log: startupLogCtx, "Starting UDP listener on port 514...")
 do {
     let parameters = NWParameters(dtls: nil, udp: NWProtocolUDP.Options())
     parameters.prohibitedInterfaceTypes = [.cellular]
-    parameters.acceptLocalOnly = true
     parameters.serviceClass = .background
     
     listener = try NWListener(using: parameters, on: 514)
