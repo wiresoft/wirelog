@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,7 +14,8 @@
 		6250B05F23889BBB00DF0AC6 /* ConfigParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F041C231DF9A300D4DA58 /* ConfigParser.swift */; };
 		6250B06023889BBE00DF0AC6 /* LogReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623F041A231DB43E00D4DA58 /* LogReceiver.swift */; };
 		6250B06223889C1D00DF0AC6 /* TestData.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6250B06123889C1D00DF0AC6 /* TestData.xcassets */; };
-		62F4F655249ECDB900FAA420 /* Parser in Frameworks */ = {isa = PBXBuildFile; productRef = 62F4F654249ECDB900FAA420 /* Parser */; };
+		62B95DC525B20DEA00813191 /* Parser in Frameworks */ = {isa = PBXBuildFile; productRef = 62B95DC425B20DEA00813191 /* Parser */; };
+		62B95DCB25B20F1500813191 /* Parser in Frameworks */ = {isa = PBXBuildFile; productRef = 62B95DCA25B20F1500813191 /* Parser */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,7 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62F4F655249ECDB900FAA420 /* Parser in Frameworks */,
+				62B95DC525B20DEA00813191 /* Parser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62B95DCB25B20F1500813191 /* Parser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,7 +124,7 @@
 			);
 			name = wirelogd;
 			packageProductDependencies = (
-				62F4F654249ECDB900FAA420 /* Parser */,
+				62B95DC425B20DEA00813191 /* Parser */,
 			);
 			productName = wirelog;
 			productReference = 623F0410231D93CC00D4DA58 /* wirelogd */;
@@ -142,6 +144,7 @@
 			);
 			name = "Wirelog Tests";
 			packageProductDependencies = (
+				62B95DCA25B20F1500813191 /* Parser */,
 			);
 			productName = "Wirelog Tests";
 			productReference = 6250B05723889AD700DF0AC6 /* Wirelog Tests.xctest */;
@@ -154,7 +157,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1120;
-				LastUpgradeCheck = 1120;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = "Noah Desch";
 				TargetAttributes = {
 					623F040F231D93CC00D4DA58 = {
@@ -166,7 +169,7 @@
 				};
 			};
 			buildConfigurationList = 623F040B231D93CC00D4DA58 /* Build configuration list for PBXProject "Wirelog" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -175,7 +178,7 @@
 			);
 			mainGroup = 623F0407231D93CC00D4DA58;
 			packageReferences = (
-				62F4F653249ECDB900FAA420 /* XCRemoteSwiftPackageReference "Parser" */,
+				62B95DC325B20DEA00813191 /* XCRemoteSwiftPackageReference "Parser" */,
 			);
 			productRefGroup = 623F0411231D93CC00D4DA58 /* Products */;
 			projectDirPath = "";
@@ -248,6 +251,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -309,6 +313,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -428,7 +433,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		62F4F653249ECDB900FAA420 /* XCRemoteSwiftPackageReference "Parser" */ = {
+		62B95DC325B20DEA00813191 /* XCRemoteSwiftPackageReference "Parser" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "ssh://Banshee.local/users/shared/scm/Parser";
 			requirement = {
@@ -439,9 +444,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		62F4F654249ECDB900FAA420 /* Parser */ = {
+		62B95DC425B20DEA00813191 /* Parser */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 62F4F653249ECDB900FAA420 /* XCRemoteSwiftPackageReference "Parser" */;
+			package = 62B95DC325B20DEA00813191 /* XCRemoteSwiftPackageReference "Parser" */;
+			productName = Parser;
+		};
+		62B95DCA25B20F1500813191 /* Parser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62B95DC325B20DEA00813191 /* XCRemoteSwiftPackageReference "Parser" */;
 			productName = Parser;
 		};
 /* End XCSwiftPackageProductDependency section */
